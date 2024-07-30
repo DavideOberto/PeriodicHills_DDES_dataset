@@ -1,0 +1,78 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  8
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+
+
+
+
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       polyBoundaryMesh;
+    location    "constant/polyMesh";
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+6
+(
+    hill
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          780;
+        startFace       47172;
+    }
+    top-wall
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          308;
+        startFace       47952;
+    }
+    front
+    {
+        type            empty;
+        inGroups        1(empty);
+        nFaces          23658;
+        startFace       48260;
+    }
+    back
+    {
+        type            empty;
+        inGroups        1(empty);
+        nFaces          23658;
+        startFace       71918;
+    }
+    cyclicAMI_outlet
+    {
+        type            cyclicAMI;
+        inGroups        1(cyclicAMI);
+        nFaces          47;
+        startFace       95576;
+        matchTolerance  9.999999747e-05;
+        transform       translational;
+        neighbourPatch  cyclicAMI_inlet;
+        separationVector ( -7.650000095 0 0 );
+        lowWeightCorrection 0.009999999776;
+    }
+    cyclicAMI_inlet
+    {
+        type            cyclicAMI;
+        inGroups        1(cyclicAMI);
+        nFaces          50;
+        startFace       95623;
+        matchTolerance  9.999999747e-05;
+        transform       translational;
+        neighbourPatch  cyclicAMI_outlet;
+        separationVector ( 7.650000095 0 0 );
+        lowWeightCorrection 0.009999999776;
+    }
+)
+
+// ************************************************************************* //

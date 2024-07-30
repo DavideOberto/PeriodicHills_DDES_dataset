@@ -1,0 +1,78 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  8
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+
+
+
+
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       polyBoundaryMesh;
+    location    "constant/polyMesh";
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+6
+(
+    hill
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          1212;
+        startFace       67375;
+    }
+    top-wall
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          524;
+        startFace       68587;
+    }
+    front
+    {
+        type            empty;
+        inGroups        1(empty);
+        nFaces          33781;
+        startFace       69111;
+    }
+    back
+    {
+        type            empty;
+        inGroups        1(empty);
+        nFaces          33781;
+        startFace       102892;
+    }
+    cyclicAMI_outlet
+    {
+        type            cyclicAMI;
+        inGroups        1(cyclicAMI);
+        nFaces          47;
+        startFace       136673;
+        matchTolerance  9.999999747e-05;
+        transform       translational;
+        neighbourPatch  cyclicAMI_inlet;
+        separationVector ( -13.05000019 0 0 );
+        lowWeightCorrection 0.009999999776;
+    }
+    cyclicAMI_inlet
+    {
+        type            cyclicAMI;
+        inGroups        1(cyclicAMI);
+        nFaces          50;
+        startFace       136720;
+        matchTolerance  9.999999747e-05;
+        transform       translational;
+        neighbourPatch  cyclicAMI_outlet;
+        separationVector ( 13.05000019 0 0 );
+        lowWeightCorrection 0.009999999776;
+    }
+)
+
+// ************************************************************************* //
