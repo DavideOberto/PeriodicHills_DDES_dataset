@@ -1,8 +1,3 @@
-<script
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
-  type="text/javascript">
-</script>
-
 # Flows over Periodic Hills using DDES turbulence models
 ## A dataset for data-driven turbulence models generated using Delayed Detached Eddy Simulation
 
